@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { getAllPlaylistItems } from "@/lib/api";
-import { PlaylistItem } from "./types/playlist_item";
 
 export default function PlaylistInput() {
   const [playlistLink, setPlaylistLink] = useState<string>("");
