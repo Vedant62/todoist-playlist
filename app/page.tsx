@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { getAllPlaylistItems } from "@/lib/api";
+import { getTodoistAuthUrl } from "@/utils/todoist";
 
 export default function PlaylistInput() {
   const [playlistLink, setPlaylistLink] = useState<string>("");
@@ -28,6 +29,8 @@ export default function PlaylistInput() {
     } catch (error) {
       console.error("Error fetching playlist:", error);
     }
+
+    window.location.href = getTodoistAuthUrl();
   };
 
   return (
