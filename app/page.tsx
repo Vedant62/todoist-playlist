@@ -4,7 +4,8 @@ import type React from "react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
+import { getAllPlaylistItems } from "@/lib/api";
+import { PlaylistItem } from "./types/playlist_item";
 
 export default function PlaylistInput() {
   const [playlistLink, setPlaylistLink] = useState<string>("");
@@ -13,12 +14,21 @@ export default function PlaylistInput() {
     setPlaylistLink(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log(playlistLink);
-    // Here you would add your logic to process the playlist link
+
     const playlistId = playlistLink.split("=")[1];
     console.log(playlistId);
 
+    try {
+      const playlistItems = await getAllPlaylistItems(playlistId);
+      //todo: add functionality for todoist here
+      playlistItems.forEach((item) => {
+        console.log(item["snippet"]["title"]);
+      });
+    } catch (error) {
+      console.error("Error fetching playlist:", error);
+    }
   };
 
   return (
