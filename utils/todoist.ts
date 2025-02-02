@@ -4,5 +4,6 @@ export function getTodoistAuthUrl() {
   const scope = "data:read_write,data:delete";
   const state = crypto.randomUUID();
 
-  return `https://todoist.com/oauth/authorize?client_id=${clientId}&scope=${scope}&state=${state}&redirect_uri=${redirectUri}`;
+  // Add these parameters to force new authorization
+  return `https://todoist.com/oauth/authorize?clientid=${clientId}&scope=${scope}&redirect_uri=${redirectUri}&state=${state}`;
 }
