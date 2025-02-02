@@ -14,6 +14,10 @@ export default function PlaylistInput() {
     setPlaylistLink(event.target.value);
   };
 
+  // const handleAuthSubmit = async () => {
+    
+  // }
+
   const handleSubmit = async () => {
     console.log(playlistLink);
 
@@ -46,6 +50,9 @@ export default function PlaylistInput() {
           value={playlistLink}
           onChange={handleInputChange}
         />
+        {/* <Button onClick={handleAuthSubmit} className="w-full">
+          Authorise to Todoist
+        </Button> */}
         <Button onClick={handleSubmit} className="w-full">
           Submit
         </Button>
